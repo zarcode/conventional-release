@@ -31,7 +31,10 @@ jobs:
       # fetch branches and switch to the temporary branch
       - name: switch to new branch
         run: git fetch --all && git checkout --track origin/release-from-${{ github.sha }}
-
+        
+      - name: Check token permissions
+        run: echo "Token has permissions: ${{ toJson(github.token) }}"
+    
       # update app config with version
       #   - name: get-npm-version
       #     id: package-version
