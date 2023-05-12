@@ -4,7 +4,8 @@ on:
     branches:
       - main
     paths-ignore:
-      - "data/**"
+      - "package.json"
+      - "CHANGELOG.md"
 
 concurrency:
   group: "main-branch"
@@ -48,10 +49,7 @@ jobs:
         uses: TriPSs/conventional-changelog-action@v3
         with:
           github-token: ${{ secrets.CHANGELOG_RELEASE }}
-          version-file: "./package.json,./package-lock.json"
           git-branch: "release-from-${{ github.sha }}"
-          skip-on-empty: false
-          skip-git-pull: true
 
       # create PR using GitHub CLI
       - name: create PR with release info
