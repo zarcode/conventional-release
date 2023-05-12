@@ -1,0 +1,24 @@
+{
+  "name": "conventional-release",
+  "version": "0.0.0",
+  "description": "Testing of coventional release process",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/zarcode/conventional-release.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/zarcode/conventional-release/issues"
+  },
+  "homepage": "https://github.com/zarcode/conventional-release#readme",
+  "devDependencies": {
+    "@commitlint/cli": "^17.6.3",
+    "@commitlint/config-conventional": "^17.6.3",
+    "husky": "^8.0.3"
+  }
+}
