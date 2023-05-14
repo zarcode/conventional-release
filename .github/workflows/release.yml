@@ -1,19 +1,31 @@
-name: Conventional Changelog Action
+name: Releases
 on:
   push:
     branches:
       - main
     paths-ignore:
-      - "package.json"
-      - "CHANGELOG.md"
+      - "data/**"
+
+permissions:
+  contents: write
+  pull-requests: write
+
+concurrency:
+  group: "main-branch"
+
 jobs:
   release:
+    if: github.repository == 'zarcode/conventional-release'
     runs-on: ubuntu-latest
+
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v2
-      - name: Conventional Changelog Action
+      # check out the repository
+      - uses: actions/checkout@v3
+
+      # run the release-please action
+      - uses: google-github-actions/release-please-action@v3
         id: changelog
-        uses: TriPSs/conventional-changelog-action@v3
         with:
-          github-token: ${{ secrets.GITHUB_TOKEN }}
+          token: ${{ secrets.CHANGELOG_RELEASE }}
+          release-type: node
+          package-name: release-please-action
