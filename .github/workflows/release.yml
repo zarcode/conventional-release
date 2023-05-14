@@ -2,7 +2,7 @@ name: Releases
 on:
   push:
     branches:
-      - dev
+      - main
     paths-ignore:
       - "data/**"
 
@@ -43,13 +43,15 @@ jobs:
       #     run: sed -i 's/0.0.0/${{ steps.package-version.outputs.current-version}}/g' config/app.json
 
       # create release info and push it upstream
-      - name: create release info and push it upstream
-        run: |
-          git config --global user.email "denciczarko@gmail.com"
-          git config --global user.name "zarcode"
-          git add .
-          git commit -m "Release from ${{ github.sha }}"
-          git push origin release-from-${{ github.sha }}
+      - name: conventional Changelog Action
+        id: changelog
+        uses: TriPSs/conventional-changelog-action@v3
+        with:
+          github-token: ${{ secrets.CHANGELOG_RELEASE }}
+          version-file: "./package.json,./package-lock.json"
+          git-branch: "release-from-${{ github.sha }}"
+          skip-on-empty: false
+          skip-git-pull: true
 
       # create PR using GitHub CLI
       - name: create PR with release info
