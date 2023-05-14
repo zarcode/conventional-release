@@ -2,9 +2,13 @@ name: Releases
 on:
   push:
     branches:
-      - main
+      - dev
     paths-ignore:
       - "data/**"
+
+permissions:
+  contents: write
+  pull-requests: write
 
 concurrency:
   group: "main-branch"
