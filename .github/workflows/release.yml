@@ -24,17 +24,15 @@ jobs:
 
       # run the release-please action
       - uses: google-github-actions/release-please-action@v3
+        id: changelog
         with:
           token: ${{ secrets.CHANGELOG_RELEASE }}
           release-type: node
           package-name: release-please-action
 
       # create release with last commit
-      - name: create release with last commit
-        uses: actions/create-release@v1
-        env:
-          GITHUB_TOKEN: ${{ secrets.CHANGELOG_RELEASE }}
+      - uses: ncipollo/release-action@v1
         with:
-          tag_name: ${{ steps.release.outputs.tag }}
-          release_name: ${{ steps.release.outputs.tag }}
-          body: ${{ steps.release.outputs.changelog }}
+          token: ${{ secrets.CHANGELOG_RELEASE }}
+          tag: ${{ steps.changelog.outputs.tag_name }}
+          bodyFile: "CHANGELOG.md"
