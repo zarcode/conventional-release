@@ -12,12 +12,9 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
-      - name: Show token
-        env:
-          TOKEN: ${{ secrets.CHANGELOG_RELEASE }}
-        run: echo $TOKEN
-      - name: Conventional Changelog Action
-        id: changelog
-        uses: TriPSs/conventional-changelog-action@v3
+      - name: Softprops Action Gh Release
+        uses: softprops/action-gh-release@v1
         with:
-          github-token: ${{ secrets.CHANGELOG_RELEASE }}
+          files: |
+            CHANGELOG.md
+          token: ${{ secrets.CHANGELOG_RELEASE }}
