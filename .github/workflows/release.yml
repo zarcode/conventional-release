@@ -20,7 +20,7 @@ jobs:
 
     steps:
       # check out the repository
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
 
       # run the release-please action
       - uses: google-github-actions/release-please-action@v3
@@ -34,5 +34,5 @@ jobs:
       - uses: ncipollo/release-action@v1
         with:
           token: ${{ secrets.CHANGELOG_RELEASE }}
-          tag: ${{ steps.changelog.outputs.tag_name }}
+          tag: ${{ steps.changelog.outputs.tag }}
           bodyFile: "CHANGELOG.md"
