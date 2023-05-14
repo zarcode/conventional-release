@@ -1,5 +1,13 @@
 # Changelog
 
+## [1.1.0](https://github.com/zarcode/conventional-release/compare/v1.0.0...v1.1.0) (2023-05-14)
+
+
+### Features
+
+* multiply function ([40d6964](https://github.com/zarcode/conventional-release/commit/40d69640276a07bc5fe327adbf2584197186ba08))
+* substract function ([8f314a3](https://github.com/zarcode/conventional-release/commit/8f314a346ad5de6ceb66a6aafdcbbb55500e4994))
+
 ## 1.0.0 (2023-05-14)
 
 
