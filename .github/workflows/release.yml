@@ -30,9 +30,12 @@ jobs:
           release-type: node
           package-name: release-please-action
 
+      - name: Print changelog outputs
+        run: echo "${{ toJson(steps.changelog.outputs) }}"
+
       # create release with last commit
       - uses: ncipollo/release-action@v1
         with:
           token: ${{ secrets.CHANGELOG_RELEASE }}
-          tag: ${{ steps.changelog.outputs.tag }}
+          tag: ${{ steps.changelog.outputs.tag_name }}
           bodyFile: "CHANGELOG.md"
