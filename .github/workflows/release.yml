@@ -12,8 +12,10 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
-      - name: Check token permissions
-        run: echo "${{ toJSON(github.token) }}"
+      - name: Show token
+        env:
+          TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: echo $TOKEN
       - name: Conventional Changelog Action
         id: changelog
         uses: TriPSs/conventional-changelog-action@v3
