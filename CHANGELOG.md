@@ -1,5 +1,18 @@
 # Changelog
 
+## [2.1.0](https://github.com/zarcode/conventional-release/compare/v2.0.1...v2.1.0) (2023-05-19)
+
+
+### Features
+
+* new feature ([ee547fb](https://github.com/zarcode/conventional-release/commit/ee547fb44512d7c652a3cc1210bd369a982b07d7))
+
+
+### Bug Fixes
+
+* chnage ([218d1fb](https://github.com/zarcode/conventional-release/commit/218d1fb9def15223a40e98d7b7ad3e2ea041c884))
+* should be null ([cd51144](https://github.com/zarcode/conventional-release/commit/cd51144dd8e25677aa3a5ea00a4feb8a5965baa7))
+
 ## [2.0.1](https://github.com/zarcode/conventional-release/compare/v2.0.0...v2.0.1) (2023-05-15)
 
 
