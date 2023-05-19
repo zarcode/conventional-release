@@ -2,7 +2,7 @@ name: Releases
 on:
   push:
     branches:
-      - main
+      - dev
     paths-ignore:
       - "data/**"
 
@@ -26,6 +26,6 @@ jobs:
       - uses: google-github-actions/release-please-action@v3
         id: changelog
         with:
-          token: ${{ secrets.CHANGELOG_RELEASE }}
+          token: ${{ secrets.GITHUB_TOKEN }}
           release-type: node
           package-name: release-please-action
