@@ -3,7 +3,7 @@ name: Delete Feature Branch
 on:
   push:
     branches:
-      - develop
+      - dev
 
 jobs:
   delete-branch:
