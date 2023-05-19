@@ -1,21 +1,13 @@
-name: Delete Feature Branch
-
+name: delete branch on close pr
 on:
-  push:
-    branches:
-      - dev
+  pull_request:
+    types: [closed]
 
 jobs:
   delete-branch:
     runs-on: ubuntu-latest
-
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v2
-
-      - name: Delete branch
-        run: |
-          git config --global user.name "Zarko Dencic"
-          git config --global user.email "denciczarko@gmail.com"
-          git branch -D ${{ github.head_ref }}
-          git push origin --delete ${{ github.head_ref }}
+      - name: delete branch
+        uses: SvanBoxel/delete-merged-branch@main
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
