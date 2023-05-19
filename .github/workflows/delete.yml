@@ -1,0 +1,21 @@
+name: Delete Feature Branch
+
+on:
+  push:
+    branches:
+      - develop
+
+jobs:
+  delete-branch:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Delete branch
+        run: |
+          git config --global user.name "Zarko Dencic"
+          git config --global user.email "denciczarko@gmail.com"
+          git branch -D ${{ github.head_ref }}
+          git push origin --delete ${{ github.head_ref }}
